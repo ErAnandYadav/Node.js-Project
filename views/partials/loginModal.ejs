@@ -1,0 +1,47 @@
+<!-- Modal -->
+<div class="modal fade" id="userLoginModal" tabindex="-1" role="dialog" aria-labelledby="userLoginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content bg-interface-100 bg-opacity-40 mx-auto" style="width: 450px;">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="https://www.f-cdn.com/assets/main/en/assets/freelancer-logo.svg" class="mx-auto mb-3" style="height: 50px;width: 199px;">
+          <h4 class="modal-title text-light w-100 font-weight-bold text-center pb-4" style="font-size: 23px;">Welcome Back
+
+          </h4>
+          <div class="p-3">
+            <form action="/auth/login" id="loginForm", method="post">
+              <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-x-7 gap-y-5">
+                <div class="md:col-span-2">
+                  <input type="email" name="email" id="loginEmail"
+                    class="bg-[#050F25] text-white border focus:border-0 border-white border-opacity-20 rounded-lg py-4 h-10 w-full focus:ring-1 focus:ring-strawberry-500"
+                    placeholder="Enter your email">
+                </div>
+                <div class="md:col-span-2 mt-3">
+                  <input type="password" name="password" id="loginPassword"
+                    class="bg-[#050F25] text-white border focus:border-0 border-white border-opacity-20 rounded-lg  py-4 h-10 w-full focus:ring-1 focus:ring-strawberry-500"
+                    placeholder="Enter password">
+                </div>
+              </div>
+              <div class="text-center justify-end mt-9 mb-4">
+                <button type="submit"
+                class="text-lg font-medium text-interface-100 w-100 justify-center items-center py-2 px-6 bg-new-500 rounded-lg border-transparent transition  hover:border-white">
+                 Login
+                </button>
+                
+              </div>
+              <h6 class="text-center small mb-3">
+                <a class="font-medium text-base group transition-all text-interface-200 hover:text-new-500" id="fgModal" href="javascript:void(0)">Forgot Password?</a>
+            </h6>
+              <div class="modal-footer d-flex justify-content-center">
+                <div class="signup-section text-white">Not a member yet? <a href="#a" class="text-new-500" data-toggle="modal" data-target="#userSignupModal"> Sign Up</a></div>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+  </div>
+  

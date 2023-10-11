@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    <link rel="shortcut icon" href="../../images/favicon.png">
+    <title>Admin Login | Web Xender</title>
+    <link rel="stylesheet" href="/static/admin/assets/css/dashlite.css?ver=3.0.3">
+    <link id="skin-default" rel="stylesheet" href="/static/admin/assets/css/theme.css?ver=3.0.3">
+    
+    
+</head>
+
+<body class="nk-body bg-white npc-general pg-auth">
+    <div class="nk-app-root">
+        <div class="nk-main ">
+            <div class="nk-wrap nk-wrap-nosidebar">
+                <div class="nk-content ">
+                    <div class="nk-block nk-block-middle nk-auth-body  wide-xs">
+                        <div class="brand-logo pb-4 text-center"><a href="../../index.html" class="logo-link"><img
+                                    class="logo-light logo-img logo-img-lg" src="/static/admin/assets/images/logo-dark.svg"
+                                    srcset="/static/admin/assets/images/logo-dark.svg 2x" alt="logo"><img
+                                    class="logo-dark logo-img logo-img-lg" src="/static/admin/assets/images/logo-dark.svg"
+                                    srcset="/static/admin/assets/images/logo-dark.svg 2x" alt="logo-dark"></a></div>
+                        <div class="card card-bordered">
+                            <div class="card-inner card-inner-lg">
+                                <div class="nk-block-head">
+                                    <div class="nk-block-head-content">
+                                        <h4 class="nk-block-title">Sign-In</h4>
+                                        <div class="nk-block-des">
+                                            <p>Access the WebXender panel using your email and passcode.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% if (errorMsg.length > 0)  { %>
+                                <div class="example-alert">
+                                    <div
+                                        class="alert alert-danger alert-icon alert-dismissible">
+                                        <em class="icon ni ni-cross-circle"></em> <strong><%= errorMsg %></strong>! 
+                                        <button class="close" data-bs-dismiss="alert"></button>
+                                    </div>
+                                </div>
+                                <% } %>
+                                <form action="/admin/login" method="post">
+                                    <div class="form-group">
+                                        <div class="form-label-group"><label class="form-label" for="default-01">Email
+                                                or Username</label></div>
+                                        <div class="form-control-wrap">
+                                            <input type="text" name="username" id="username" class="form-control form-control-lg" id="default-01"
+                                                placeholder="Enter your email address or username">
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group"><label class="form-label" for="default-01">Password</label></div>
+                                        <div class="form-control-wrap">
+                                            <a href="#" class="form-icon form-icon-right passcode-switch lg"
+                                                data-target="password"><em
+                                                    class="passcode-icon icon-show icon ni ni-eye"></em><em
+                                                    class="passcode-icon icon-hide icon ni ni-eye-off"></em></a>
+                                                    <input type="password" name="password" id=""password class="form-control form-control-lg" id="password" placeholder="Enter your password"></div>
+                                    </div>
+                                    <div class="form-group"><button type="submit" class="btn btn-lg btn-primary btn-block">Sign
+                                            in</button></div>
+                                </form>
+                                <div class="form-note-s2 text-center pt-4"> New on our platform? <a
+                                        href="auth-register-v2.html">Create an account</a></div>
+                                <div class="text-center pt-4 pb-3">
+                                    <h6 class="overline-title overline-title-sap"><span>OR</span></h6>
+                                </div>
+                                <ul class="nav justify-center gx-4">
+                                    <li class="nav-item"><a class="nav-link" href="#">Facebook</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">Google</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nk-footer nk-auth-footer-full">
+                        <div class="container wide-lg">
+                            <div class="row g-3">
+                                <div class="col-lg-6 order-lg-last">
+                                    <ul class="nav nav-sm justify-content-center justify-content-lg-end">
+                                        <li class="nav-item"><a class="nav-link" href="#">Terms & Condition</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                                        <li class="nav-item dropup"><a
+                                                class="dropdown-toggle dropdown-indicator has-indicator nav-link"
+                                                data-bs-toggle="dropdown" data-offset="0,10"><span>English</span></a>
+                                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-end">
+                                                <ul class="language-list">
+                                                    <li><a href="#" class="language-item"><img
+                                                                src="../../images/flags/english.png" alt=""
+                                                                class="language-flag"><span
+                                                                class="language-name">English</span></a></li>
+                                                    <li><a href="#" class="language-item"><img
+                                                                src="../../images/flags/spanish.png" alt=""
+                                                                class="language-flag"><span
+                                                                class="language-name">Español</span></a></li>
+                                                    <li><a href="#" class="language-item"><img
+                                                                src="../../images/flags/french.png" alt=""
+                                                                class="language-flag"><span
+                                                                class="language-name">Français</span></a></li>
+                                                    <li><a href="#" class="language-item"><img
+                                                                src="../../images/flags/turkey.png" alt=""
+                                                                class="language-flag"><span
+                                                                class="language-name">Türkçe</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="nk-block-content text-center text-lg-start">
+                                        <p class="text-soft">&copy; 2022 Dashlite. All Rights Reserved.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/admin/assets/js/bundle.js?ver=3.0.3"></script>
+    <script src="/static/admin/assets/js/scripts.js?ver=3.0.3"></script>
+    <script src="/static/admin/assets/js/demo-settings.js?ver=3.0.3"></script>
+    
+</body>
+
+</html>

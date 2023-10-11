@@ -1,0 +1,152 @@
+<!-- Modal -->
+<div class="modal fade" id="userSignupModal" tabindex="-1" role="dialog" aria-labelledby="userSignupModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-interface-100 bg-opacity-40">
+      <div class="modal-header border-0 pb-0">
+
+        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4 class="modal-title text-light w-100 font-weight-bold text-center pb-4" style="font-size: 23px;">Create a New
+          Account</h4>
+        <div class="p-3">
+
+          <div class="group " style="width: 190px;">
+            <a href="#"
+              class="group-hover:bg-new-500 bg-new-500 group-hover:border-transparent transition-all flex space-x-3 p-6 rounded-xl border border-dashed bg-[#0A1429] border-[#3A3E4E] items-center justify-center">
+
+              <span class="text-white transition-all group-hover:text-interface-100  font-semibold"><span
+                  class="text-2xl text-center text-dark ">Membership</span><br><span
+                  class="pl-4 text-dark ">₹99.00/yr</span>
+            </a>
+
+          </div>
+          <form method="POST" id="signupForm">
+            <input type="hidden" name="amount"
+              class="bg-[#050F25] text-white border focus:border-0 border-white border-opacity-20 rounded-lg py-4 h-10 w-full focus:ring-1 focus:ring-strawberry-500"
+              placeholder="First Name" value="20">
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-x-7 gap-y-5 mt-3">
+              <div class="mt-2">
+                <label for="fname" class="block mb-2 text-base font-medium text-interface-200">First Name</label>
+                <input type="text" name="fname" id="fname"
+                  class="bg-[#050F25] text-white border focus:border-0 border-white border-opacity-20 rounded-lg py-4 h-10 w-full focus:ring-1 focus:ring-strawberry-500"
+                  placeholder="First Name" required>
+              </div>
+              <div class="mt-2">
+                <label for="lname" class="block mb-2 text-base font-medium text-interface-200">Last Name</label>
+                <input type="text" name="lname"
+                  class="bg-[#050F25] text-white border focus:border-0 border-white border-opacity-20 rounded-lg py-4 h-10 w-full focus:ring-1 focus:ring-strawberry-500"
+                  placeholder="Last Name" required>
+              </div>
+
+              <div class="md:col-span-2 mt-2">
+                <label for="email" class="block mb-2 text-base font-medium text-interface-200">Email</label>
+                <input type="email" name="email" id="email"
+                  class="bg-[#050F25] text-white border focus:border-0 border-white border-opacity-20 rounded-lg py-4 h-10 w-full focus:ring-1 focus:ring-strawberry-500"
+                  placeholder="Email" required>
+                  <p id="popover-email" class="invisible text-danger pull-right block-help" style="margin-bottom: -10px; font-size: 14px;">Enter an valid email address</p>
+                  
+              </div>
+              <div class="md:col-span-2">
+                <label for="Password" class="block mb-2 text-base font-medium text-interface-200">Password</label>
+                <input type="text" name="password" id="password"
+                  class="bg-[#050F25] text-white border focus:border-0 border-white border-opacity-20 rounded-lg py-4 h-10 w-full focus:ring-1 focus:ring-strawberry-500"
+                  placeholder="Password" required>
+                  <div id="popover-password">
+                    <p class="block text-base text-interface-200" style="font-size: 14px;">Password Strength: <span id="result" style="font-size: 14px;"> </span></p>
+                    <div class="progress" style="height: 6px;">
+                        <div id="password-strength" class="progress-bar progress-bar-success"
+                            role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                            style="width:0%" height="10px">
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="md:col-span-2 mt-2">
+                <label for="cpassword" class="block mb-2 text-base font-medium text-interface-200">Confirm
+                  Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword"
+                  class="bg-[#050F25] text-white border focus:border-0 border-white border-opacity-20 rounded-lg  py-4 h-10 w-full focus:ring-1 focus:ring-strawberry-500"
+                  placeholder="Confirm Password" required>
+                  <p id="popover-cpassword" class="invisible text-danger pull-right block-help" style="margin-bottom: -10px; font-size: 14px;">Password don't
+                    match</p>
+              </div>
+
+            </div>
+            <div class="text-center justify-end mt-9 mb-4">
+              <button type="submit" id="checkout-button"
+                class="text-lg font-medium text-interface-100 w-100 justify-center items-center py-2 px-6 bg-new-500 rounded-lg border border-transparent transition  hover:border hover:border-white">
+                Sign up & Subscribe
+              </button>
+              
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <div class="signup-section text-white">Have an account?<a href="#a" class="text-new-500" id="showModal"
+                  data-toggle="modal" data-target="#userLoginModal"> Login</a></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      console.log("ready to code");
+      $('#signupForm').submit(function (e) {
+        
+        e.preventDefault();
+        $.ajax({
+          url: '/payment/create-checkout-session',
+          method: 'POST',
+          data: $(this).serialize(),
+          success: function (response) {
+            jQuery(function ($) {
+              $(document).ajaxSend(function () {
+                $("#overlay").fadeIn(300);
+              }, 5000);
+            });
+            $('#signupForm').trigger('reset');
+            setTimeout(function () { window.location = response.url; }, 3000);
+          },
+          error: function (error) {
+            console.error(error);
+            console.log(error.status);
+            if (error.status == 400) {
+              Toastify({
+                text: 'Password do not match!',
+                duration: 3000,
+                close: true,
+                gravity: 'top',
+                position: 'center',
+                style: {
+                  background: "#dc3545",
+                },
+              }).showToast();
+            }
+            if (error.status == 409) {
+              Toastify({
+                text: 'Email already exist!',
+                duration: 3000,
+                close: true,
+                gravity: 'top',
+                position: 'center',
+                style: {
+                  background: "#dc3545",
+                },
+              }).showToast();
+            }
+          }
+        });
+      });
+      $(document).on('click', '#showModal', function () {
+        $('#userSignupModal').modal('hide');
+      });
+      
+      
+    });
+    // Front-end JavaScript code
+  </script>
